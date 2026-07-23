@@ -54,14 +54,14 @@ def save_task():
 
 def delete_task():
     selected_index = existing_tasks_listbox.curselection()
-    index = selected_index[0]
     if not selected_index:
         message_label.config(text="Please select a task to delete!", fg="red")
     else:
+        index = selected_index[0]
         del tasks[index]
         existing_tasks_listbox.delete(index)
-        message_label.config(text="Task deleted successfully!", fg="green")
         save_task_to_file()
+        message_label.config(text="Task deleted successfully!", fg="green")
 
 
 save_task_button = tk.Button(ventana, text="Save Task", command=save_task)
